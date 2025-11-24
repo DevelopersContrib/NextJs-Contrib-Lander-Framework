@@ -4,6 +4,9 @@ import Footer from "@/components/includes/Footer"
 import Navigation from "@/components/includes/Navigation"
 import Form from "@/components/includes/Form"
 import StatSection from "@/components/home/component/StatSection"
+import dynamic from "next/dynamic";
+
+const First100FoundersModalWrapper = dynamic(() => import("@/components/First100FoundersModalWrapper"), { ssr: false });
 import { 
   getDomain,
   getData, 
@@ -44,6 +47,7 @@ export default async function Home() {
 
   return (
     <>
+      <First100FoundersModalWrapper />
       <HeaderWidget piwikId={c.data.piwikId} accountGA={c.data.accountGA} adsenseClientId={c.data.adsenseClientId}  />
       <Navigation  domain={domain} logo={c.data.logo} />
       <div className="tw-py-20">
